@@ -793,8 +793,8 @@ class flowplayer extends FV_Wordpress_Flowplayer_Plugin_Private {
       if( $sCaption ) {
         $replace_from = array('&amp;quot;','&amp;','\;','&quot;');        
         $replace_to = array('"','<!--amp-->','<!--semicolon-->','"');        
-        $sCaption = str_replace( $replace_from, $replace_to, $sCaption );
-        $aCaption = explode( ';', $sCaption );        
+        $sCaption = str_replace( $replace_from, $replace_to, $sCaption );        
+        $aCaption = mb_split( ';', $sCaption );
       }
       if( isset($aCaption) && count($aCaption) > 0 ) {
         foreach( $aCaption AS $key => $item ) {
